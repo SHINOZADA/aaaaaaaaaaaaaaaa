@@ -1,0 +1,27 @@
+import os
+from dataclasses import dataclass
+
+os.system("cls") 
+
+@dataclass
+class Livro:
+    nome: str
+    autor: str
+    categoria: str
+    preco: float
+
+listaLivros = []
+
+for i in range(1):
+    nome = input("Informe o nome do livro: ")
+    autor = input("Informe o autor do livro: ")
+    categoria = input("Informe a categoria do livro: ")
+    preco = float(input("Informe o valor do livro: "))
+    livro_atual = Livro(nome, autor, categoria, preco) 
+    listaLivros.append(livro_atual)  
+
+arquivo = "livros.txt"
+
+with open(arquivo, "w") as arquivodelivros:  
+    for livro in listaLivros:
+        arquivodelivros.write(f"{livro.nome},{livro.autor},{livro.categoria},{livro.preco}\n")
